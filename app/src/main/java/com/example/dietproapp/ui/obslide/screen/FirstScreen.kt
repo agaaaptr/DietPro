@@ -74,7 +74,7 @@ class FirstScreen : Fragment() {
                     toastSuccess("Berhasil menambahkan usia & jenis kelamin" + it.data?.nama)
                 }
                 State.ERROR -> {
-                    toastError(it.message ?: "Error")
+//                    toastError(it.message ?: "Error")
                 }
                 State.LOADING -> {
 //                    progress.show()

@@ -65,7 +65,7 @@ class SecondScreen : Fragment() {
                     toastSuccess("Berhasil menambahkan Tinggi & Berat Badan" + it.data?.nama)
                 }
                 State.ERROR -> {
-                    toastError(it.message ?: "Error")
+//                    toastError(it.message ?: "Error")
                 }
                 State.LOADING -> {
 

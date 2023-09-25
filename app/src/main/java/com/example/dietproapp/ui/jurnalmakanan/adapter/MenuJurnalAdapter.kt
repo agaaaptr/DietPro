@@ -14,13 +14,14 @@ import java.util.Locale
 class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),Filterable {
 
     var data = ArrayList<Makanan>()
+    private var filterData = ArrayList<Makanan>()
     val checkedItems = mutableMapOf<Int, Boolean>()
 
     inner class ViewHolder(val itemBinding: ListJurnalBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item: Makanan, position: Int) {
             itemBinding.apply {
-                item.id.toString()
+                item.id
                 namaBahan.text = item.Nama_Bahan
                 EnKkal.text = item.Energi_kkal
                 protein.text = item.Protein_g
@@ -36,7 +37,7 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),F
     }
 
     fun addItems(items: List<Makanan>) {
-//        data.clear()
+        data.clear()
         data.addAll(items)
         notifyDataSetChanged()
     }
@@ -45,24 +46,24 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),F
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString().toLowerCase(Locale.getDefault())
-                data.clear()
+                filterData.clear()
                 if (charSearch.isEmpty()) {
-                    data.addAll(data)
+                    filterData.addAll(data)
                 } else {
                     for (item in data) {
                         if (item.Nama_Bahan?.toLowerCase(Locale.getDefault())?.contains(charSearch) == true) {
-                            data.add(item)
+                            filterData.add(item)
                         }
                     }
                 }
                 val filterResults = FilterResults()
-                filterResults.values = data
+                filterResults.values = filterData
                 return filterResults
             }
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                data = results?.values as ArrayList<Makanan>
+                filterData = results?.values as ArrayList<Makanan>
                 notifyDataSetChanged()
             }
         }
@@ -99,12 +100,12 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),F
             // Handle the case where Energi_kkal is null (optional)
             holder.itemBinding.EnKkal.text = "N/A"
         }
-        holder.bind(data[position], position)
+        holder.bind(filterData[position], position)
 
         holder.itemBinding.checkbox.isChecked = checkedItems[position] ?: false
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return filterData.size
     }
 }
