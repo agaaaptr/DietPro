@@ -1,0 +1,388 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    tools:context=".ui.profil.ProfilActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:text="My Profile"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/_20sdp"
+            android:clickable="true"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/back"/>
+
+        <ImageView
+            style="@style/image_clickable"
+            android:id="@+id/img_edit"
+            android:clickable="true"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/edit"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                app:cardCornerRadius="@dimen/_25sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_inisialProfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="@dimen/_22ssp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="AB"
+                        android:background="@color/secondary"/>
+
+                    <ImageView
+                        android:scaleType="centerCrop"
+                        android:id="@+id/img_Profil"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/tv_namaProfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16ssp"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <TextView
+                    android:id="@+id/tv_tipeakun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Akun"
+                    android:textSize="@dimen/_13ssp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:backgroundTint="#D9D9D9D9"
+        android:background="@drawable/bg_textfield"
+        android:layout_marginTop="30dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="134dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Personal Info" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/user" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="Username"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:clickable="false"
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="13sp"
+        android:layout_marginStart="35dp"
+        android:text="Username" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="35dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/text1"
+        android:background="#D3D3D3" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/email" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:clickable="false"
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="13sp"
+        android:layout_marginStart="35dp"
+        android:text="Email" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="35dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/text1"
+        android:background="#D3D3D3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/gender" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="Gender"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:clickable="false"
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="13sp"
+        android:layout_marginStart="35dp"
+        android:text="Gender" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="35dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/text1"
+        android:background="#D3D3D3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/height" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="Height"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:clickable="false"
+        android:id="@+id/tv_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="13sp"
+        android:layout_marginStart="35dp"
+        android:text="Height" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="35dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/text1"
+        android:background="#D3D3D3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/weight" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="Weight"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:clickable="false"
+        android:id="@+id/tv_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="13sp"
+        android:layout_marginStart="35dp"
+        android:text="Weight" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="35dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/text1"
+        android:background="#D3D3D3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:clickable="true"
+        android:id="@+id/btn_Keluar"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:cornerRadius="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_25sdp"/>
+
+</LinearLayout>

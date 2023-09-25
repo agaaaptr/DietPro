@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "798937497549",
+    "project_id": "coba-4299a",
+    "storage_bucket": "coba-4299a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798937497549:android:cd1f3f7420e623d6d84e84",
+        "android_client_info": {
+          "package_name": "com.example.dietproapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798937497549-jd13qgb2segou1njf10tvq2j0557h7bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK8uGfrprUEfcZDI4ZxYUo6CmgwPkvZvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798937497549-jd13qgb2segou1njf10tvq2j0557h7bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

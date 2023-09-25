@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.statistik.StatistikFragment">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/navigation_statistik"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+
+                <RelativeLayout
+                    android:id="@+id/frameStatistik"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/header"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Laporan Statistik"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="60dp"
+                        android:background="@drawable/bg_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <Spinner
+                            android:id="@+id/dd_opsihari"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rincian"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:backgroundTint="@color/secondary"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="145dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/bg_statistikgraph"
+                        android:elevation="5dp">
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Kalori"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints"
+                            tools:layout_editor_absoluteY="16dp" />
+
+                        <TextView
+                            android:id="@+id/kalori"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="36dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="0"
+                            android:textColor="@color/secondary"
+                            android:textSize="20sp"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="65dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Rata-rata harian:"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/rataRata"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="115dp"
+                            android:layout_marginTop="64dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+
+                            android:id="@+id/text_target"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Target:"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/rataRata"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+
+                            android:id="@+id/target"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="0kkal"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+
+                            app:layout_constraintStart_toEndOf="@id/text_target"
+                            app:layout_constraintTop_toBottomOf="@id/rataRata"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/layout1"
+                        android:background="@drawable/bg_statistikgraph"
+                        android:layout_height="wrap_content"
+                        android:elevation="5dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="290dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/rincian"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="290dp"
+                            android:layout_marginEnd="10dp"
+                            android:elevation="5dp"
+                            tools:ignore="MissingConstraints">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="15dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Makanan dikonsumsi"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="MissingConstraints"
+                                tools:layout_editor_absoluteY="16dp" />
+
+
+                            <TextView
+                                android:id="@+id/label1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="50dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Makanan"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="MissingConstraints" />
+
+
+                            <TextView
+                                android:id="@+id/label2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="50dp"
+                                android:layout_marginEnd="80dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Jumlah dikonsumsi"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="MissingConstraints" />
+
+                            <TextView
+                                android:id="@+id/label3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="50dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Kal(Kkal)"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="MissingConstraints" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_list_rincian_makanan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rincian"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintTop_toBottomOf="@+id/rincian"
+                            tools:ignore="MissingConstraints"
+                            tools:listitem="@layout/list_item_statistik">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/layout1" />
+
+
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>
