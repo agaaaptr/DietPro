@@ -11,6 +11,7 @@ import com.example.dietproapp.core.data.source.remote.network.State
 import com.example.dietproapp.core.data.source.remote.request.ForgotPasswordRequest
 import com.example.dietproapp.databinding.ActivityEditProfilBinding
 import com.example.dietproapp.databinding.ActivityForgetPasswordBinding
+import com.inyongtisto.myhelper.extension.intentActivity
 import com.inyongtisto.myhelper.extension.isEmpty
 import com.inyongtisto.myhelper.extension.showToast
 import com.inyongtisto.myhelper.extension.toastError
@@ -39,6 +40,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
         binding.btnSend.setOnClickListener{
             setForgetPassword()
+        }
+        binding.imgBack.setOnClickListener{
+            intentActivity(LoginActivity::class.java)
         }
     }
 

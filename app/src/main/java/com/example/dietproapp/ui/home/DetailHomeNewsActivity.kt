@@ -2,10 +2,10 @@ package com.example.dietproapp.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dietproapp.NavigasiActivity
 import com.example.dietproapp.databinding.ActivityDetailHomeNewsBinding
 import com.inyongtisto.myhelper.extension.intentActivity
 
@@ -19,24 +19,21 @@ class DetailHomeNewsActivity : AppCompatActivity() {
         _binding = ActivityDetailHomeNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        //Shimmer Effect
-        binding.webView.visibility = View.GONE
-//        binding.shimmerView.stopShimmerAnimation()
-
-//        Handler().postDelayed({
-//            binding.webView.visibility   =   View.VISIBLE
-//            binding.shimmerView.stopShimmerAnimation()
-//            binding..vishimmerViewsibility  =   View.GONE
-//        },5000)//seconds
-//        //after 5 seconds loading ui will be show
-
         val articleUrl = intent.getStringExtra("article_url")
 
         val webView = binding.webView
         webView.apply {
-            webViewClient = WebViewClient()
+            webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    // Load JavaScript code to extract and display text
+                    val javascript = """
+                        var body = document.body.innerText;
+                        document.body.innerHTML = '<div id="content">' + body + '</div>';
+                    """.trimIndent()
+                    evaluateJavascript(javascript, null)
+                }
+            }
             if (articleUrl != null) {
                 loadUrl(articleUrl)
             }
@@ -47,10 +44,9 @@ class DetailHomeNewsActivity : AppCompatActivity() {
 
     private fun mainButton() {
         binding.toolbar.setOnClickListener {
-            intentActivity(HomeFragment::class.java)
+            intentActivity(NavigasiActivity::class.java)
         }
 
-        //Share URL
         binding.imgShare.setOnClickListener {
             val articleUrl = intent.getStringExtra("article_url")
             val share = Intent(Intent.ACTION_SEND)
@@ -59,5 +55,11 @@ class DetailHomeNewsActivity : AppCompatActivity() {
             share.putExtra(Intent.EXTRA_TEXT, articleUrl)
             startActivity(Intent.createChooser(share, "Bagikan ke : "))
         }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

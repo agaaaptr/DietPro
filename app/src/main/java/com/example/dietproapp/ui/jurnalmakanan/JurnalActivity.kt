@@ -106,10 +106,8 @@ class JurnalActivity : MyActivity() {
         val selectedFoodIds = mutableListOf<Int>()
 
         // Loop melalui setiap checkbox untuk memeriksa apakah dicentang
-        for ((position, isChecked) in adapter.checkedItems) {
+        for ((foodId, isChecked) in adapter.checkedItems) {
             if (isChecked) {
-                // Mendapatkan ID makanan dari data yang sesuai
-                val foodId = adapter.data[position].id // Ganti dengan cara Anda mendapatkan ID makanan dari item
                 selectedFoodIds.add(foodId)
             }
         }

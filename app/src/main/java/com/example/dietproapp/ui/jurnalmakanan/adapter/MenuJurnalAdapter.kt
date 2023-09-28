@@ -11,11 +11,13 @@ import com.example.dietproapp.databinding.ListJurnalBinding
 import java.util.Locale
 
 @SuppressLint("NotifyDataSetChanged")
-class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),Filterable {
+class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(), Filterable {
 
     var data = ArrayList<Makanan>()
-    private var filterData = ArrayList<Makanan>()
+    private var filteredData = ArrayList<Makanan>()
     val checkedItems = mutableMapOf<Int, Boolean>()
+    private var originalData = ArrayList<Makanan>()
+
 
     inner class ViewHolder(val itemBinding: ListJurnalBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
@@ -30,8 +32,6 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),F
                 serat.text = item.Serat_Total_g
                 natrium.text = item.Natrium_mg
                 kalium.text = item.Kalium_mg
-                ukuran.text = item.Ukuran_Porsi
-                takaran.text = item.Takaran
             }
         }
     }
@@ -39,31 +39,41 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),F
     fun addItems(items: List<Makanan>) {
         data.clear()
         data.addAll(items)
+        originalData.addAll(items) // Isi originalData dengan data asli
+
+        // Inisialisasi checkedItems untuk semua item dalam originalData sebagai unchecked
+        for (item in originalData) {
+            checkedItems[item.id] = false
+        }
+
         notifyDataSetChanged()
     }
+
 
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString().toLowerCase(Locale.getDefault())
-                filterData.clear()
+                filteredData.clear()
+
                 if (charSearch.isEmpty()) {
-                    filterData.addAll(data)
+                    filteredData.addAll(originalData) // Gunakan originalData saat tidak ada kata kunci
                 } else {
-                    for (item in data) {
+                    for (item in originalData) {
                         if (item.Nama_Bahan?.toLowerCase(Locale.getDefault())?.contains(charSearch) == true) {
-                            filterData.add(item)
+                            filteredData.add(item)
                         }
                     }
                 }
+
                 val filterResults = FilterResults()
-                filterResults.values = filterData
+                filterResults.values = filteredData
                 return filterResults
             }
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                filterData = results?.values as ArrayList<Makanan>
+                filteredData = results?.values as ArrayList<Makanan>
                 notifyDataSetChanged()
             }
         }
@@ -83,29 +93,33 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(),F
             val position = viewHolder.adapterPosition
             checkedItems[position] = isChecked
         }
+
         return viewHolder
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val makanan = data[position]
+        val makanan = filteredData[position] // Gunakan filteredData
         holder.bind(makanan, position)
 
-        // Check if Energi_kkal is not null before setting it in your view
         val energiKkal = makanan.Energi_kkal
-        holder.itemBinding.checkbox.isChecked = checkedItems[position] ?: false
+        val foodId = makanan.id
+
+        holder.itemBinding.checkbox.isChecked = checkedItems[foodId] ?: false
 
         if (energiKkal != null) {
             holder.itemBinding.EnKkal.text = energiKkal
         } else {
-            // Handle the case where Energi_kkal is null (optional)
             holder.itemBinding.EnKkal.text = "N/A"
         }
-        holder.bind(filterData[position], position)
 
-        holder.itemBinding.checkbox.isChecked = checkedItems[position] ?: false
+        holder.itemBinding.checkbox.setOnCheckedChangeListener { _, isChecked ->
+            checkedItems[foodId] = isChecked
+        }
     }
 
+
     override fun getItemCount(): Int {
-        return filterData.size
+        return filteredData.size
     }
 }
