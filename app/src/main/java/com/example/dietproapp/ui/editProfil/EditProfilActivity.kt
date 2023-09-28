@@ -62,9 +62,9 @@ class EditProfilActivity : MyActivity() {
                 update()
             }
         }
-        binding.btnEditpp.setOnClickListener {
-            picImage()
-        }
+//        binding.btnEditpp.setOnClickListener {
+//            picImage()
+//        }
         binding.imgBack.setOnClickListener {
             intentActivity(ProfilActivity::class.java)
         }
