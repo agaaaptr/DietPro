@@ -36,15 +36,15 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/id"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/poppins_medium"-->
-<!--                android:text=""-->
-<!--                android:textColor="@color/primary"-->
-<!--                android:textSize="15sp"-->
-<!--                android:textStyle="bold" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/id"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:fontFamily="@font/poppins_medium"-->
+            <!--                android:text=""-->
+            <!--                android:textColor="@color/primary"-->
+            <!--                android:textSize="15sp"-->
+            <!--                android:textStyle="bold" />-->
 
 
         </LinearLayout>
@@ -124,10 +124,10 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text=":"
                 android:textColor="@color/secondary"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
 
@@ -135,10 +135,10 @@
                 android:id="@+id/EnKkal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="180"
                 android:textColor="@color/secondary"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
         </LinearLayout>
@@ -165,9 +165,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text=":"
-                android:layout_marginStart="14dp"
                 android:textSize="10sp" />
 
 
@@ -175,9 +175,9 @@
                 android:id="@+id/protein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="3,0"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
         </LinearLayout>
@@ -204,9 +204,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text=":"
-                android:layout_marginStart="16dp"
                 android:textSize="10sp" />
 
 
@@ -214,9 +214,9 @@
                 android:id="@+id/lemak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="0,3"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
         </LinearLayout>
@@ -244,9 +244,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text=":"
-                android:layout_marginStart="35dp"
                 android:textSize="10sp" />
 
 
@@ -254,9 +254,9 @@
                 android:id="@+id/Kh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="39,8"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
         </LinearLayout>
@@ -305,8 +305,8 @@
             android:id="@+id/linearLayout8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginStart="22dp"
+            android:orientation="horizontal"
             app:layout_constraintStart_toEndOf="@+id/linearLayout3"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
@@ -322,9 +322,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text=":"
-                android:layout_marginStart="4dp"
                 android:textSize="10sp" />
 
 
@@ -332,9 +332,9 @@
                 android:id="@+id/natrium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="1"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
         </LinearLayout>
@@ -361,9 +361,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text=":"
-                android:layout_marginStart="10dp"
                 android:textSize="10sp" />
 
 
@@ -371,9 +371,9 @@
                 android:id="@+id/kalium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="38,0"
-                android:layout_marginStart="5dp"
                 android:textSize="10sp" />
 
         </LinearLayout>
@@ -384,14 +384,27 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/secondary"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteX="282dp"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="282dp" />
+
+        <EditText
+            android:id="@+id/edt_gram"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textSize="12dp"
+            android:layout_width="75dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox"
+            app:layout_constraintVertical_bias="0.45"
+            tools:ignore="MissingConstraints"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
 </androidx.cardview.widget.CardView>
