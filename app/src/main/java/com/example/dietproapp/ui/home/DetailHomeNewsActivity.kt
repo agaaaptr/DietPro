@@ -1,10 +1,7 @@
 package com.example.dietproapp.ui.home
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -22,31 +19,26 @@ class DetailHomeNewsActivity : AppCompatActivity() {
         _binding = ActivityDetailHomeNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        val articleUrl = intent.getStringExtra("article_url")
 
-        val toolbar = binding.toolbar
-        val progressBar = binding.progressBar
+        val webView = binding.webView
+        webView.apply {
+            webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    // Load JavaScript code to extract and display text
+                    val javascript = """
+                        var body = document.body.innerText;
+                        document.body.innerHTML = '<div id="content">' + body + '</div>';
+                    """.trimIndent()
+                    evaluateJavascript(javascript, null)
+                }
+            }
+            if (articleUrl != null) {
+                loadUrl(articleUrl)
+            }
+        }
 
-        setSupportActionBar(toolbar)
-        assert(supportActionBar != null)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-
-
-        progressBar.max = 100
-
-        //Shimmer Effect
-//        binding.webView.visibility = View.GONE
-//        binding.shimmerView.stopShimmerAnimation()
-//
-//        Handler().postDelayed({
-//            binding.webView.visibility   =   View.VISIBLE
-//            binding.shimmerView.stopShimmerAnimation()
-//            binding.shimmerView.visibility  =   View.GONE
-//        },5000)//seconds
-        //after 5 seconds loading ui will be show
-
-        showWebView()
         mainButton()
     }
 
@@ -55,7 +47,6 @@ class DetailHomeNewsActivity : AppCompatActivity() {
             intentActivity(NavigasiActivity::class.java)
         }
 
-        //Share URL
         binding.imgShare.setOnClickListener {
             val articleUrl = intent.getStringExtra("article_url")
             val share = Intent(Intent.ACTION_SEND)
@@ -64,42 +55,11 @@ class DetailHomeNewsActivity : AppCompatActivity() {
             share.putExtra(Intent.EXTRA_TEXT, articleUrl)
             startActivity(Intent.createChooser(share, "Bagikan ke : "))
         }
-    }
-    private fun showWebView() {
-        var articleUrl = intent.getStringExtra("article_url")
-        val progressBar =   binding.progressBar
-        val webView = binding.webView
 
-        webView.settings.loadsImagesAutomatically = true
-        webView.settings.javaScriptEnabled = true
-        webView.settings.domStorageEnabled = true
-        webView.settings.setSupportZoom(true)
-        webView.settings.builtInZoomControls = true
-        webView.settings.displayZoomControls = false
-        webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
-        webView.loadUrl(articleUrl!!)
-
-        progressBar.progress = 0
-
-        webView.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, newUrl: String): Boolean {
-                view.loadUrl(newUrl)
-                progressBar.progress = 0
-                return true
-            }
-
-            override fun onPageStarted(view: WebView, urlStart: String, favicon: Bitmap?) {
-                super.onPageStarted(view, urlStart, favicon)
-                articleUrl = urlStart
-                invalidateOptionsMenu()
-            }
-
-            override fun onPageFinished(view: WebView, urlPage: String) {
-                super.onPageFinished(view, urlPage)
-                progressBar.visibility = View.GONE
-                invalidateOptionsMenu()
-            }
-        }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

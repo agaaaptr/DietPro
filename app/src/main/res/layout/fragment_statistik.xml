@@ -244,7 +244,7 @@
                                 android:id="@+id/label2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="50dp"
+                                android:layout_marginTop="48dp"
                                 android:layout_marginEnd="80dp"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:text="Jumlah dikonsumsi"
@@ -252,6 +252,8 @@
                                 android:textSize="10sp"
 
                                 app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.224"
+                                app:layout_constraintStart_toEndOf="@+id/label1"
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:ignore="MissingConstraints" />
 
@@ -259,14 +261,16 @@
                                 android:id="@+id/label3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="50dp"
-                                android:layout_marginEnd="15dp"
+                                android:layout_marginTop="48dp"
+                                android:layout_marginEnd="16dp"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:text="Kal(Kkal)"
                                 android:textColor="@color/black"
                                 android:textSize="10sp"
 
                                 app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.111"
+                                app:layout_constraintStart_toEndOf="@+id/label2"
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:ignore="MissingConstraints" />
 

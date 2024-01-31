@@ -13,7 +13,6 @@ import com.inyongtisto.myhelper.extension.logs
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.util.TimeZone
 
 class CombineAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val statistikData = ArrayList<Laporan>()
@@ -56,19 +55,8 @@ class CombineAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             itemBinding.apply {
                 //bagian atas
                 val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                dateFormat.timeZone = TimeZone.getDefault()
-                logs("date 1", "$dateFormat")
-
                 val parsedDate = dateFormat.parse(date)
-                logs("date 2", "$parsedDate")
-
-                val outputFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-                outputFormat.timeZone = TimeZone.getDefault()
-
-                val formattedDate = outputFormat.format(parsedDate)
-                logs("date 3", "$formattedDate")
-
-
+                val formattedDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(parsedDate)
 
                 listTanggal.text = formattedDate
                 jumlahKaloriList.text = kalori.toString()

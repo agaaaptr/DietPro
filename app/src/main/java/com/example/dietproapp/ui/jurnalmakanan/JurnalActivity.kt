@@ -118,14 +118,6 @@ class JurnalActivity : MyActivity() {
         selectedFoodIds.forEach { idMakananArray.add(it) }
         requestJson.add("id_makanan", idMakananArray)
 
-        val jumlahMakananArray = JsonArray()
-        selectedFoodIds.forEach {
-            val jumlah = adapter.jumlahMakananMap[it]
-            if (!jumlah.isNullOrEmpty()) {
-                jumlahMakananArray.add(jumlah)
-            }
-        }
-        requestJson.add("jumlah", jumlahMakananArray)
 
         viewModel.store(idUser,requestJson).observe(this) {
             when (it.state) {

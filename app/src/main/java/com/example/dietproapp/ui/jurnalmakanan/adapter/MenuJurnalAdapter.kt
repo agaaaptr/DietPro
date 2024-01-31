@@ -1,10 +1,7 @@
 package com.example.dietproapp.ui.jurnalmakanan.adapter
 
 import android.annotation.SuppressLint
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
@@ -20,13 +17,10 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(), 
     private var filteredData = ArrayList<Makanan>()
     val checkedItems = mutableMapOf<Int, Boolean>()
     private var originalData = ArrayList<Makanan>()
-    val jumlahMakananMap = mutableMapOf<Int, String>()
 
 
     inner class ViewHolder(val itemBinding: ListJurnalBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-
-        var jumlahMakanan: String = ""
         fun bind(item: Makanan, position: Int) {
             itemBinding.apply {
                 item.id
@@ -122,30 +116,7 @@ class MenuJurnalAdapter : RecyclerView.Adapter<MenuJurnalAdapter.ViewHolder>(), 
         holder.itemBinding.checkbox.setOnCheckedChangeListener { _, isChecked ->
             checkedItems[foodId] = isChecked
         }
-
-       val edtGram = holder.itemBinding.edtGram.text.toString()
-
-    if (edtGram.isEmpty()) {
-        // Atur nilai default ke 200 jika edtGram kosong
-        holder.itemBinding.edtGram.text = Editable.Factory.getInstance().newEditable("200")
-        jumlahMakananMap[foodId] = "200"
-    } else {
-        jumlahMakananMap[foodId] = edtGram
     }
-
-    holder.itemBinding.edtGram.addTextChangedListener(object : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-        }
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            val jumlahMakanan = s.toString()
-            jumlahMakananMap[foodId] = jumlahMakanan
-        }
-
-        override fun afterTextChanged(s: Editable?) {}
-    })
-    }
-
 
 
     override fun getItemCount(): Int {
